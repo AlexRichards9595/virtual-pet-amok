@@ -14,6 +14,12 @@ public class OrgDogTest {
 		String check = underTest.getName();
 		assertThat(check, is("Name"));
 	}
+	@Test
+	public void shouldReturnDescription () {
+		String check = underTest.getDescription();
+		assertThat(check, is("Description"));
+	}
+	
 
 	
 }
