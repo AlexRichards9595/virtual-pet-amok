@@ -5,10 +5,10 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-public class OrgDogTest {
+public class OrgCatTest {
 	
-	Organic underTest = new OrgDog("Name","Description",20,20,20,20);
-		
+	Organic underTest = new OrgCat("Name","Description",20,20,20,20);
+	
 	@Test
 	public void shouldReturnName () {
 		String check = underTest.getName();
@@ -41,5 +41,4 @@ public class OrgDogTest {
 	}
 	
 
-	
 }
