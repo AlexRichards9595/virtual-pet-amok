@@ -12,21 +12,7 @@ public class VirtualPetTest {
 	
 	
 	
-	@Test
-	public void shouldCreateAPetWithNameDescriptionAndHealth() {
-		VirtualPet underTest = new VirtualPet ("", "", 20);
-		
-		assertNotNull(underTest);
-	}
-	@Test
-	public void assertThatAPetHasBeenAdded() {
-		VirtualPet underTest = new VirtualPet("Steve", "Description", 20);
-		OrgDog orgDog = new OrgDog (underTest.name,underTest.description,underTest.health,20,20,20,20);
-		underTest.addPet(orgDog);
-		Collection<VirtualPet> check = underTest.getAllPets();
-		assertThat(check, contains(orgDog));
-		
-	}
+	
 	
 	
 

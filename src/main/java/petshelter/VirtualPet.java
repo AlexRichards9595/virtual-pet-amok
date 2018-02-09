@@ -10,7 +10,7 @@ public class VirtualPet {
 	protected String description;
 	protected int health=20;
 	
-	private Map<String, VirtualPet> pets= new HashMap<String, VirtualPet>();
+	
 
 	public VirtualPet(String name, String description, int health) {
 		this.name = name;
@@ -30,12 +30,6 @@ public class VirtualPet {
 		return health;
 	}
 
-	public void addPet(VirtualPet virtualPet) {
-		pets.put(virtualPet.name, virtualPet);
-	}
-
-	public Collection<VirtualPet> getAllPets() {
-		return pets.values();
-	}
+	
 
 }
