@@ -1,25 +1,10 @@
 package petshelter;
 
-public class Organic  {
+public class Organic extends AnimalShelter {
 	
-	protected String name;
-	protected String description;
-	protected int health;
 	protected int hunger;
 	protected int thirst;
 	protected int boredom;
-
-	public String getName() {
-		return name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public int getHealth() {
-		return health;
-	}
 
 	public int getHunger() {
 		return hunger;
