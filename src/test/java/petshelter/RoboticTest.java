@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class RoboticTest {
 	
-	AnimalShelter underTest = new Robotic("Name","Description",20,20);
+	VirtualPet underTest = new Robotic("Name","Description",20,20);
 	
 	@Test
 	public void shouldReturnName () {

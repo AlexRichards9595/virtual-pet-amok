@@ -2,12 +2,10 @@ package petshelter;
 
 public class OrgDog extends Organic implements Walkable{
 	
-	private int poop;
+	private int poop=20;
 
 	public OrgDog(String name, String description, int health, int hunger, int thirst, int boredom, int poop){
-		this.name = name;
-		this.description = description;
-		this.health = health;
+		super (name, description, health);
 		this.hunger = hunger;
 		this.thirst = thirst;
 		this.boredom = boredom;

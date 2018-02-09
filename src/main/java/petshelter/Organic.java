@@ -1,10 +1,14 @@
 package petshelter;
 
-public class Organic extends AnimalShelter {
+public class Organic extends VirtualPet {
 	
-	protected int hunger;
-	protected int thirst;
-	protected int boredom;
+	public Organic(String name, String description, int health) {
+		super(name, description, health);
+	}
+
+	protected int hunger =20;
+	protected int thirst=20;
+	protected int boredom=20;
 
 	public int getHunger() {
 		return hunger;
