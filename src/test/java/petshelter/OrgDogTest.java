@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class OrgDogTest {
 	
-	Organic underTest = new OrgDog("Name","Description",20,20,20,20);
+	Organic underTest = new OrgDog("Name","Description",20,20,20,20,20);
 		
 	@Test
 	public void shouldReturnName () {
@@ -38,6 +38,20 @@ public class OrgDogTest {
 	public void shouldReturnBoredom () {
 		int check = underTest.getBoredom();
 		assertThat(check, is(20));
+	}
+	@Test 
+	public void shouldGetPoop() {
+		OrgDog underTest = new OrgDog("Name","Description",20,20,20,20,20);
+		int check = underTest.getPoop();
+		assertThat(check, is(20));
+	}
+	@Test
+	public void walkShouldReducePoop() {
+		OrgDog underTest = new OrgDog("Name","Description",20,20,20,20,20);
+		int checkBefore = underTest.getPoop();
+		underTest.walk();
+		int checkAfter = underTest.getPoop();
+		assertThat(checkAfter, is(checkBefore-2));
 	}
 	
 
