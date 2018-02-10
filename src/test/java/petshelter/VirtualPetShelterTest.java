@@ -56,7 +56,7 @@ public class VirtualPetShelterTest {
 	
 
 	@Test
-	public void shouldFeedAllPets() {
+	public void shouldFeedAllOrganicPets() {
 		underTest.addPet(new OrgDog("Steve", "Description"));
 		underTest.addPet(new OrgDog("Bob", "Description"));
 		underTest.addPet(new RoboDog("Steve", "Description"));
@@ -70,7 +70,7 @@ public class VirtualPetShelterTest {
 		}
 	}
 	@Test
-	public void shouldWaterAllPets() {
+	public void shouldWaterAllOrganicPets() {
 		underTest.addPet(new OrgDog("Steve", "Description"));
 		underTest.addPet(new OrgDog("Bob", "Description"));
 		underTest.addPet(new RoboDog("Steve", "Description"));
@@ -83,35 +83,25 @@ public class VirtualPetShelterTest {
 			}
 		}
 	}
-//
-//	@Test
-//	public void shouldWaterAPet() {
-//		underTest.addPet(new VirtualPet("Steve", "Description"));
-//		underTest.waterPet("Steve");
-//		int check = underTest.getPetThirst("Steve");
-//		assertEquals(15, check);
-//	}
+	@Test
+	public void shouldTickAllPets() {
+		underTest.addPet(new OrgDog("Steve", "Description"));
+		underTest.addPet(new OrgDog("Bob", "Description"));
+		underTest.addPet(new RoboDog("Steve", "Description"));
+		underTest.TickAllPets();
 
-//	@Test
-//	public void shouldWaterAllPets() {
-//		underTest.addPet(new VirtualPet("Steve", "Description"));
-//		underTest.addPet(new VirtualPet("Bob", "Description"));
-//		underTest.waterAllPets();
-//
-//		for (VirtualPet virtualPet : underTest.pets()) {
-//			int check = underTest.getPetThirst(virtualPet.getName());
-//			assertEquals(15, check);
-//		}
-//	}
-//
-//	@Test
-//	public void shouldTickAPet() {
-//		underTest.addPet(new VirtualPet("Steve", "Description"));
-//		underTest.tickPet("Steve");
-//		int check = underTest.getPetHunger("Steve");
-//		assertEquals(22, check);
-//	}
-//
+		for (VirtualPet virtualPet : underTest.getAllPets()) {
+			if (virtualPet instanceof Organic) {
+				int checkOrganic = ((Organic) virtualPet).getHunger();
+				assertThat(checkOrganic, is(22));
+			}
+			if (virtualPet instanceof Robotic) {
+				int checkRobotic = ((Robotic) virtualPet).getOil();
+				assertThat(checkRobotic, is(18));
+			}
+		}
+	}
+
 //	@Test
 //	public void shouldTickAllPets() {
 //		underTest.addPet(new VirtualPet("Steve", "Description"));

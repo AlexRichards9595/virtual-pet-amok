@@ -36,4 +36,15 @@ public class VirtualPetShelter {
 		}); 		
 	}
 
+	public void TickAllPets() {
+		pets.forEach((String name, VirtualPet virtualPet)-> {
+			if (virtualPet instanceof Organic) {
+				((Organic) virtualPet).tick();
+			}
+			if (virtualPet instanceof Robotic) {
+				((Robotic) virtualPet).tick();
+			}
+		}); 				
+	}
+
 }
