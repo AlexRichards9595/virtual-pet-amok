@@ -1,7 +1,6 @@
 package petshelter;
 
-public abstract class  Organic extends VirtualPet {
-
+public abstract class Organic extends VirtualPet {
 
 	protected int hunger = 20;
 	protected int thirst = 20;
@@ -22,7 +21,7 @@ public abstract class  Organic extends VirtualPet {
 
 	public void feed() {
 		hunger = 0;
-		
+
 	}
 
 	public void water() {
@@ -34,7 +33,7 @@ public abstract class  Organic extends VirtualPet {
 	}
 
 	public void tick() {
-		hunger +=2;
+		hunger += 2;
 		thirst += 1;
 		boredom += 2;
 	}

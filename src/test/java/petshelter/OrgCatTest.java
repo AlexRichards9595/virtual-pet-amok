@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class OrgCatTest {
 
-	Organic underTest = new OrgCat("Name", "Description", 20, 20, 20, 20,20);
+	Organic underTest = new OrgCat("Name", "Description", 20, 20, 20, 20, 20);
 
 	@Test
 	public void shouldReturnName() {
@@ -44,19 +44,21 @@ public class OrgCatTest {
 		int check = underTest.getBoredom();
 		assertThat(check, is(20));
 	}
-	
+
 	@Test
 	public void shouldFeedPet() {
 		underTest.feed();
 		int check = underTest.getHunger();
 		assertThat(check, is(0));
 	}
+
 	@Test
 	public void shouldWaterPet() {
 		underTest.water();
 		int check = underTest.getThirst();
 		assertThat(check, is(0));
 	}
+
 	@Test
 	public void shouldPlayWithPet() {
 		underTest.play();

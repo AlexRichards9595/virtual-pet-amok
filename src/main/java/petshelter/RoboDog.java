@@ -1,7 +1,7 @@
 package petshelter;
 
 public class RoboDog extends Robotic implements Walkable {
-	
+
 	public RoboDog(String name, String description) {
 		this(name, description, 20, 20);
 	}
@@ -15,9 +15,9 @@ public class RoboDog extends Robotic implements Walkable {
 
 	@Override
 	public void walk() {
-		health +=3;
-		oils -=1;
-		
+		health += 3;
+		oils -= 1;
+
 	}
 
 }

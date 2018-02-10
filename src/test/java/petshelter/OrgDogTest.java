@@ -68,6 +68,7 @@ public class OrgDogTest {
 		int check = underTest.getHunger();
 		assertThat(check, is(0));
 	}
+
 	@Test
 	public void shouldWaterPet() {
 		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
@@ -75,6 +76,7 @@ public class OrgDogTest {
 		int check = underTest.getThirst();
 		assertThat(check, is(0));
 	}
+
 	@Test
 	public void shouldPlayWithPet() {
 		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
@@ -82,23 +84,14 @@ public class OrgDogTest {
 		int check = underTest.getBoredom();
 		assertThat(check, is(0));
 	}
+
 	@Test
 	public void shouldTickPet() {
-	Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
-	int beforeCheck = underTest.getHunger();
-	underTest.tick();
-	int check = underTest.getHunger();
-	assertThat(check, is(beforeCheck+2));
+		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+		int beforeCheck = underTest.getHunger();
+		underTest.tick();
+		int check = underTest.getHunger();
+		assertThat(check, is(beforeCheck + 2));
 	}
-	
 
-
-
-	
-	
-	
-	
-	
-	
-	
 }

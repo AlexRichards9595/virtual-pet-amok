@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 public class RoboDogTest {
-	
+
 	Robotic underTest = new RoboDog("Name", "Description", 20, 20);
 
 	@Test
@@ -25,6 +25,7 @@ public class RoboDogTest {
 	public void shouldReturnhealth() {
 		int check = underTest.getHealth();
 		assertThat(check, is(20));
+
 	}
 
 	@Test
@@ -32,20 +33,22 @@ public class RoboDogTest {
 		int check = underTest.getOil();
 		assertThat(check, is(20));
 	}
+
 	@Test
-	public void shouldOilRoboPet () {
+	public void shouldOilRoboPet() {
 		int beforeCheck = underTest.getOil();
 		underTest.oilPet();
 		int afterCheck = underTest.getOil();
-		assertThat(afterCheck, is(beforeCheck+50));
+		assertThat(afterCheck, is(beforeCheck + 50));
 	}
-	@Test 
+
+	@Test
 	public void shouldTickRoboPet() {
 		int beforeCheck = underTest.getOil();
 		underTest.tick();
 		int afterCheck = underTest.getOil();
-		assertThat(afterCheck, is(beforeCheck-2));
-		
+		assertThat(afterCheck, is(beforeCheck - 2));
+
 	}
 
 }

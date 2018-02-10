@@ -3,16 +3,16 @@ package petshelter;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 import java.util.Collection;
 
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 public class VirtualPetShelterTest {
-	
+
 	VirtualPetShelter underTest = new VirtualPetShelter();
 
 	@Test
@@ -34,7 +34,7 @@ public class VirtualPetShelterTest {
 	@Test
 	public void shouldBeAbleToAddTwoPets() {
 		Organic orgDog = new OrgDog("name", "description", 20, 20, 20, 20, 20);
-		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20,20);
+		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20, 20);
 		underTest.addPet(orgDog);
 		underTest.addPet(orgCat);
 		Collection<VirtualPet> check = underTest.getAllPets();
@@ -45,7 +45,7 @@ public class VirtualPetShelterTest {
 	@Test
 	public void shouldBeAbleToRemovePet() {
 		Organic orgDog = new OrgDog("name", "description", 20, 20, 20, 20, 20);
-		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20,20);
+		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20, 20);
 		underTest.addPet(orgDog);
 		underTest.addPet(orgCat);
 		underTest.removePet("steve");
@@ -53,7 +53,6 @@ public class VirtualPetShelterTest {
 
 		assertThat(check, contains(orgDog));
 	}
-	
 
 	@Test
 	public void shouldFeedAllOrganicPets() {
@@ -69,6 +68,7 @@ public class VirtualPetShelterTest {
 			}
 		}
 	}
+
 	@Test
 	public void shouldWaterAllOrganicPets() {
 		underTest.addPet(new OrgDog("Steve", "Description"));
@@ -83,7 +83,7 @@ public class VirtualPetShelterTest {
 			}
 		}
 	}
-	
+
 	@Test
 	public void shouldOilAllRoboticPets() {
 		underTest.addPet(new OrgDog("Steve", "Description"));
@@ -98,6 +98,7 @@ public class VirtualPetShelterTest {
 			}
 		}
 	}
+
 	@Test
 	public void shouldTickAllPets() {
 		underTest.addPet(new OrgDog("Steve", "Description"));
@@ -117,14 +118,10 @@ public class VirtualPetShelterTest {
 		}
 	}
 
-//	@Test
-//	public void shouldPlayWithAPet() {
-//		underTest.addPet(new VirtualPet("Steve", "Description"));
-//		underTest.playWithPet("Steve");
-//		int check = underTest.getPetBoredom("Steve");
-//		assertEquals(10, check);
-//	}
-	
-	
+	@Test(expected = UnsupportedOperationException.class)
+	public void shouldPlayWithOnlyAnOrganicPet() {
+		underTest.addPet(new RoboDog("Steve", "Description"));
+		underTest.PlayWithPet("Steve");
+	}
 
 }
