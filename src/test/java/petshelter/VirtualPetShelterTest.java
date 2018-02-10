@@ -83,6 +83,21 @@ public class VirtualPetShelterTest {
 			}
 		}
 	}
+	
+	@Test
+	public void shouldOilAllRoboticPets() {
+		underTest.addPet(new OrgDog("Steve", "Description"));
+		underTest.addPet(new OrgDog("Bob", "Description"));
+		underTest.addPet(new RoboDog("Steve", "Description"));
+		underTest.OilAllRobotPets();
+
+		for (VirtualPet virtualPet : underTest.getAllPets()) {
+			if (virtualPet instanceof Robotic) {
+				int check = ((Robotic) virtualPet).getOil();
+				assertThat(check, is(70));
+			}
+		}
+	}
 	@Test
 	public void shouldTickAllPets() {
 		underTest.addPet(new OrgDog("Steve", "Description"));
@@ -102,18 +117,6 @@ public class VirtualPetShelterTest {
 		}
 	}
 
-//	@Test
-//	public void shouldTickAllPets() {
-//		underTest.addPet(new VirtualPet("Steve", "Description"));
-//		underTest.addPet(new VirtualPet("Bob", "Description"));
-//		underTest.tickAllPets();
-//
-//		for (VirtualPet virtualPet : underTest.pets()) {
-//			int check = underTest.getPetHunger(virtualPet.getName());
-//			assertEquals(22, check);
-//		}
-//	}
-//
 //	@Test
 //	public void shouldPlayWithAPet() {
 //		underTest.addPet(new VirtualPet("Steve", "Description"));

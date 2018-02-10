@@ -47,4 +47,12 @@ public class VirtualPetShelter {
 		}); 				
 	}
 
+	public void OilAllRobotPets() {
+		pets.forEach((String name, VirtualPet virtualPet)-> {
+			if (virtualPet instanceof Robotic) {
+				((Robotic) virtualPet).oilPet();
+			}
+		}); 		
+	}
+
 }
