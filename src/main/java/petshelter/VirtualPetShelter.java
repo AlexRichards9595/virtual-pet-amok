@@ -20,4 +20,12 @@ public class VirtualPetShelter {
 		pets.remove(name);
 	}
 
+	public void feedAllPets() {
+		pets.forEach((String name, VirtualPet virtualPet)-> {
+			if (virtualPet instanceof Organic) {
+				((Organic) virtualPet).feed();
+			}
+		}); 
+	}
+
 }
