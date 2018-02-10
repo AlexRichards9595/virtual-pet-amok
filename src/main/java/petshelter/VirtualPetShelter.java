@@ -28,4 +28,12 @@ public class VirtualPetShelter {
 		}); 
 	}
 
+	public void WaterAllPets() {
+		pets.forEach((String name, VirtualPet virtualPet)-> {
+			if (virtualPet instanceof Organic) {
+				((Organic) virtualPet).water();
+			}
+		}); 		
+	}
+
 }

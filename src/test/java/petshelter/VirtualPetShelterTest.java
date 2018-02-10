@@ -69,6 +69,20 @@ public class VirtualPetShelterTest {
 			}
 		}
 	}
+	@Test
+	public void shouldWaterAllPets() {
+		underTest.addPet(new OrgDog("Steve", "Description"));
+		underTest.addPet(new OrgDog("Bob", "Description"));
+		underTest.addPet(new RoboDog("Steve", "Description"));
+		underTest.WaterAllPets();
+
+		for (VirtualPet virtualPet : underTest.getAllPets()) {
+			if (virtualPet instanceof Organic) {
+				int check = ((Organic) virtualPet).getThirst();
+				assertThat(check, is(0));
+			}
+		}
+	}
 //
 //	@Test
 //	public void shouldWaterAPet() {
