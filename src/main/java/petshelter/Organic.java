@@ -19,4 +19,17 @@ public abstract class  Organic extends VirtualPet {
 		return boredom;
 	}
 
+	public void feed() {
+		hunger = 0;
+		
+	}
+
+	public void water() {
+		thirst = 0;
+	}
+
+	public void play() {
+		boredom = 0;
+	}
+
 }

@@ -44,5 +44,27 @@ public class OrgCatTest {
 		int check = underTest.getBoredom();
 		assertThat(check, is(20));
 	}
+	
+	@Test
+	public void shouldFeedPet() {
+		Organic underTest = new OrgCat("Name", "Description", 20, 20, 20, 20);
+		underTest.feed();
+		int check = underTest.getHunger();
+		assertThat(check, is(0));
+	}
+	@Test
+	public void shouldWaterPet() {
+		Organic underTest = new OrgCat("Name", "Description", 20, 20, 20, 20);
+		underTest.water();
+		int check = underTest.getThirst();
+		assertThat(check, is(0));
+	}
+	@Test
+	public void shouldPlayWithPet() {
+		Organic underTest = new OrgCat("Name", "Description", 20, 20, 20, 20);
+		underTest.play();
+		int check = underTest.getBoredom();
+		assertThat(check, is(0));
+	}
 
 }

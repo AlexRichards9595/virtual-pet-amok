@@ -55,10 +55,41 @@ public class OrgDogTest {
 	@Test
 	public void walkShouldReducePoop() {
 		OrgDog underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
-		int checkBefore = underTest.getPoop();
+		int checkBefore = underTest.getWaste();
 		underTest.walk();
-		int checkAfter = underTest.getPoop();
+		int checkAfter = underTest.getWaste();
 		assertThat(checkAfter, is(checkBefore - 2));
 	}
 
+	@Test
+	public void shouldFeedPet() {
+		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+		underTest.feed();
+		int check = underTest.getHunger();
+		assertThat(check, is(0));
+	}
+	@Test
+	public void shouldWaterPet() {
+		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+		underTest.water();
+		int check = underTest.getThirst();
+		assertThat(check, is(0));
+	}
+	@Test
+	public void shouldPlayWithPet() {
+		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+		underTest.play();
+		int check = underTest.getBoredom();
+		assertThat(check, is(0));
+	}
+
+
+
+	
+	
+	
+	
+	
+	
+	
 }
