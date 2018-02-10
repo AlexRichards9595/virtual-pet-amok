@@ -32,7 +32,7 @@ public class VirtualPetShelterTest {
 	public void shouldBeAbleToAddTwoPets() {
 		VirtualPetShelter underTest = new VirtualPetShelter();
 		Organic orgDog = new OrgDog("name", "description", 20, 20, 20, 20, 20);
-		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20);
+		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20,20);
 		underTest.addPet(orgDog);
 		underTest.addPet(orgCat);
 		Collection<VirtualPet> check = underTest.getAllPets();
@@ -44,7 +44,7 @@ public class VirtualPetShelterTest {
 	public void shouldBeAbleToRemovePet() {
 		VirtualPetShelter underTest = new VirtualPetShelter();
 		Organic orgDog = new OrgDog("name", "description", 20, 20, 20, 20, 20);
-		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20);
+		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20,20);
 		underTest.addPet(orgDog);
 		underTest.addPet(orgCat);
 		underTest.removePet("steve");
@@ -52,5 +52,7 @@ public class VirtualPetShelterTest {
 
 		assertThat(check, contains(orgDog));
 	}
+	
+	
 
 }

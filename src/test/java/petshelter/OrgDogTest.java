@@ -47,7 +47,7 @@ public class OrgDogTest {
 
 	@Test
 	public void shouldGetWaster() {
-		OrgDog underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
 		int check = underTest.getWaste();
 		assertThat(check, is(20));
 	}
@@ -82,6 +82,15 @@ public class OrgDogTest {
 		int check = underTest.getBoredom();
 		assertThat(check, is(0));
 	}
+	@Test
+	public void shouldTickPet() {
+	Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+	int beforeCheck = underTest.getHunger();
+	underTest.tick();
+	int check = underTest.getHunger();
+	assertThat(check, is(beforeCheck+2));
+	}
+	
 
 
 

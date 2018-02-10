@@ -32,23 +32,20 @@ public class RoboDogTest {
 		int check = underTest.getOil();
 		assertThat(check, is(20));
 	}
-
-	
-	
-
-//	@Test
-//	public void shouldGetPoop() {
-//		OrgDog underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
-//		int check = underTest.getPoop();
-//		assertThat(check, is(20));
-//	}
-
-//	@Test
-//	public void walkShouldReducePoop() {
-//		int checkBefore = underTest.getHealth();
-//		underTest.walk();
-//		int checkAfter = underTest.getHealth();
-//		assertThat(checkAfter, is(checkBefore - 2));
-//	}
+	@Test
+	public void shouldOilRoboPet () {
+		int beforeCheck = underTest.getOil();
+		underTest.oilPet();
+		int afterCheck = underTest.getOil();
+		assertThat(afterCheck, is(beforeCheck+50));
+	}
+	@Test 
+	public void shouldTickRoboPet() {
+		int beforeCheck = underTest.getOil();
+		underTest.tick();
+		int afterCheck = underTest.getOil();
+		assertThat(afterCheck, is(beforeCheck-2));
+		
+	}
 
 }

@@ -8,6 +8,15 @@ public abstract class Robotic extends VirtualPet {
 		return oils;
 	}
 
+	public void oilPet() {
+		oils += 50;
+		
+	}
+
+	public void tick() {
+		oils -=2;
+	}
+
 
 
 	
