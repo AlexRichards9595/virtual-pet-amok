@@ -9,30 +9,30 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-
-
 public class VirtualPetShelterTest {
-	
+
 	@Test
-	public void shouldCreateAPetWithNameDescriptionAndHealth() {
-		VirtualPet underTest = new VirtualPet ("", "", 20);
-		
+	public void shouldCreateAPet() {
+		VirtualPet underTest = new OrgDog("name", "description", 0, 0, 0, 0, 0);
+
 		assertNotNull(underTest);
 	}
+
 	@Test
 	public void assertThatAPetHasBeenAdded() {
 		VirtualPetShelter underTest = new VirtualPetShelter();
-		OrgDog orgDog = new OrgDog ("name","description",20,20,20,20,20);
+		OrgDog orgDog = new OrgDog("name", "description", 20, 20, 20, 20, 20);
 		underTest.addPet(orgDog);
 		Collection<VirtualPet> check = underTest.getAllPets();
 		assertThat(check, contains(orgDog));
-		
+
 	}
+
 	@Test
-	public void shouldBeAbleToAddTwoEmployees() {
+	public void shouldBeAbleToAddTwoPets() {
 		VirtualPetShelter underTest = new VirtualPetShelter();
-		OrgDog orgDog = new OrgDog ("name","description",20,20,20,20,20);
-		OrgCat orgCat = new OrgCat ("steve","description",20,20,20,20);
+		OrgDog orgDog = new OrgDog("name", "description", 20, 20, 20, 20, 20);
+		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20);
 		underTest.addPet(orgDog);
 		underTest.addPet(orgCat);
 		Collection<VirtualPet> check = underTest.getAllPets();
@@ -40,5 +40,17 @@ public class VirtualPetShelterTest {
 		assertThat(check, containsInAnyOrder(orgDog, orgCat));
 	}
 
+	@Test
+	public void shouldBeAbleToRemovePet() {
+		VirtualPetShelter underTest = new VirtualPetShelter();
+		OrgDog orgDog = new OrgDog("name", "description", 20, 20, 20, 20, 20);
+		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20);
+		underTest.addPet(orgDog);
+		underTest.addPet(orgCat);
+		underTest.removePet("steve");
+		Collection<VirtualPet> check = underTest.getAllPets();
+
+		assertThat(check, contains(orgDog));
+	}
 
 }

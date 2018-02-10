@@ -1,18 +1,18 @@
 package petshelter;
 
-public class Robotic extends VirtualPet {
+public abstract class Robotic extends VirtualPet {
+
+	protected int oils;
 	
-	public Robotic(String name, String description, int health, int oils) {
-		super(name, description, health);
+	public int getOil() {
+		return oils;
 	}
 
-	private int oils;
 
-	public void Organic(String name, String description, int health) {
-		this.name= name;
-		this.description = description;
-		this.health = health;
-		this.oils = oils;
-	}
+
+	
+	
+
+
 
 }

@@ -6,54 +6,59 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 public class OrgDogTest {
-	
-	Organic underTest = new OrgDog("Name","Description",20,20,20,20,20);
-		
+
+	Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+
 	@Test
-	public void shouldReturnName () {
+	public void shouldReturnName() {
 		String check = underTest.getName();
 		assertThat(check, is("Name"));
 	}
+
 	@Test
-	public void shouldReturnDescription () {
+	public void shouldReturnDescription() {
 		String check = underTest.getDescription();
 		assertThat(check, is("Description"));
 	}
+
 	@Test
-	public void shouldReturnhealth () {
+	public void shouldReturnhealth() {
 		int check = underTest.getHealth();
 		assertThat(check, is(20));
 	}
+
 	@Test
-	public void shouldReturnHunger () {
+	public void shouldReturnHunger() {
 		int check = underTest.getHunger();
 		assertThat(check, is(20));
 	}
+
 	@Test
-	public void shouldReturnThirst () {
+	public void shouldReturnThirst() {
 		int check = underTest.getThirst();
 		assertThat(check, is(20));
 	}
+
 	@Test
-	public void shouldReturnBoredom () {
+	public void shouldReturnBoredom() {
 		int check = underTest.getBoredom();
 		assertThat(check, is(20));
 	}
-	@Test 
-	public void shouldGetPoop() {
-		OrgDog underTest = new OrgDog("Name","Description",20,20,20,20,20);
-		int check = underTest.getPoop();
+
+	@Test
+	public void shouldGetWaster() {
+		OrgDog underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+		int check = underTest.getWaste();
 		assertThat(check, is(20));
 	}
+
 	@Test
 	public void walkShouldReducePoop() {
-		OrgDog underTest = new OrgDog("Name","Description",20,20,20,20,20);
+		OrgDog underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
 		int checkBefore = underTest.getPoop();
 		underTest.walk();
 		int checkAfter = underTest.getPoop();
-		assertThat(checkAfter, is(checkBefore-2));
+		assertThat(checkAfter, is(checkBefore - 2));
 	}
-	
 
-	
 }
