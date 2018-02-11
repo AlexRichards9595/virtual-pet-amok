@@ -65,6 +65,16 @@ public class OrgCatTest {
 		int check = underTest.getBoredom();
 		assertThat(check, is(0));
 	}
+	@Test
+	public void shouldGetAllWasteForTick() {
+		OrgCat underTest = new OrgCat("name", "description");
+		VirtualPetShelter virtualPetShelter = new VirtualPetShelter();
+		virtualPetShelter.addPet(new OrgCat("name", "Description", 20,20,20,20,20));
+		virtualPetShelter.addPet(new OrgCat("nameTwo", "Description", 20,20,20,20,20));
+		int check = underTest.getTotalWaste();
+		assertThat(check, is(40));
+		
+	}
 	
 
 }

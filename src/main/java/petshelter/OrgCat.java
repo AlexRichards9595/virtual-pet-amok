@@ -32,6 +32,14 @@ public class OrgCat extends Organic {
 		if (boredom > 100) {
 			health -= boredom-100;
 		}
+		if (getTotalWaste()>50) {
+			health -= getTotalWaste()-50;
+		}
+	}
+
+	public int getTotalWaste() {
+		VirtualPetShelter virtualPetShelter = new VirtualPetShelter();
+		return virtualPetShelter.getLitterBoxWaste();
 	}
 
 }
