@@ -89,15 +89,36 @@ public class VirtualPetShelter {
 				totalWaste += ((OrgCat) virtualPet).getWaste();
 			}
 		}
-		return 40;
+		return totalWaste;
 	}
 
-//	public void cleanLitterBox() {
-//		for (VirtualPet virtualPet : getAllPets()) {
-//			if (virtualPet instanceof OrgCat) {
-//				((OrgCat) virtualPet).removeWaste();
-//			}
-//		}
-//	}
+	public void cleanLitterBox() {
+		for (VirtualPet virtualPet : getAllPets()) {
+			if (virtualPet instanceof OrgCat) {
+				((OrgCat) virtualPet).removeWaste();
+			}
+		}
+	}
+
+	public void printShelterStats() {
+		for (VirtualPet virtualPet : getAllPets()) {
+			System.out.println(virtualPet);
+		}
+	}
+	public void printAnimalNameAndDescription() {
+		for (VirtualPet virtualPet : getAllPets()) {
+			System.out.println("[" + virtualPet.getName() + "]\t" + virtualPet.getDescription());
+		}
+	}
+
+	public boolean checkForPet(String name) {
+		for (VirtualPet virtualPet : getAllPets()) {
+			if (virtualPet.getName().equalsIgnoreCase(name)) {
+				return true;
+			}
+		}
+		return false;
+
+	}
 
 }

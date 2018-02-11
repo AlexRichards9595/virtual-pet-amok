@@ -50,9 +50,10 @@ public class OrgDogTest {
 		int check = underTest.getWaste();
 		assertThat(check, is(20));
 	}
+
 	@Test
-	public void shouldGetCageWaste () {
-		OrgDog underTest = new OrgDog("name","description");
+	public void shouldGetCageWaste() {
+		OrgDog underTest = new OrgDog("name", "description");
 		int check = underTest.getCageWaste();
 		assertThat(check, is(0));
 	}
@@ -86,9 +87,10 @@ public class OrgDogTest {
 		int check = underTest.getBoredom();
 		assertThat(check, is(0));
 	}
+
 	@Test
 	public void shouldCleanCage() {
-		OrgDog underTest = new OrgDog ("name","description");
+		OrgDog underTest = new OrgDog("name", "description");
 		underTest.cleanCage();
 		int check = underTest.getCageWaste();
 		assertThat(check, is(0));
@@ -96,21 +98,20 @@ public class OrgDogTest {
 
 	@Test
 	public void shouldTickPet() {
-		OrgDog underTest = new OrgDog("Name","Description");
+		OrgDog underTest = new OrgDog("Name", "Description");
 		int beforeCheck = underTest.getHunger();
 		underTest.tick();
 		int check = underTest.getHunger();
 		assertThat(check, is(beforeCheck + 2));
 	}
+
 	@Test
-	public void shouldReduceHealthBecauseHungerIsTooHigh () {
-		OrgDog underTest = new OrgDog("Name", "Description", 100, 110, 20, 20, 20,0);
+	public void shouldReduceHealthBecauseHungerIsTooHigh() {
+		OrgDog underTest = new OrgDog("Name", "Description", 100, 110, 20, 20, 20, 0);
 		int beforeCheck = underTest.getHealth();
 		underTest.tick();
 		int afterCheck = underTest.getHealth();
-		assertThat(afterCheck, is(beforeCheck-12));
+		assertThat(afterCheck, is(beforeCheck - 12));
 	}
-	
-	
 
 }

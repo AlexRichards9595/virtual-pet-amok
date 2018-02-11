@@ -3,7 +3,7 @@ package petshelter;
 public class RoboDog extends Robotic implements Walkable {
 
 	public RoboDog(String name, String description) {
-		this(name, description, 20, 20);
+		this(name, description, DEFAULT_HEALTH, 20);
 	}
 
 	public RoboDog(String name, String description, int health, int oils) {
@@ -18,6 +18,10 @@ public class RoboDog extends Robotic implements Walkable {
 		health += 3;
 		oils -= 1;
 
+	}
+	@Override
+	public String toString() {
+		return ("Name: " + name + "\t|Health: "+ health + "\t|Oils: " + oils);
 	}
 
 }
