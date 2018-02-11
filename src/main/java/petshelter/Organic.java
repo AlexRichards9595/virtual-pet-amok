@@ -2,9 +2,12 @@ package petshelter;
 
 public abstract class Organic extends VirtualPet {
 
-	protected int hunger = 20;
-	protected int thirst = 20;
-	protected int boredom = 20;
+	protected static final int DEFAULT_BOREDOM = 20;
+	protected static final int DEFAULT_THIRST = 20;
+	protected static final int DEFAULT_HUNGER = 20;
+	protected int hunger = DEFAULT_HUNGER;
+	protected int thirst = DEFAULT_THIRST;
+	protected int boredom = DEFAULT_BOREDOM;
 	protected int waste = 20;
 
 	public int getHunger() {
@@ -30,12 +33,6 @@ public abstract class Organic extends VirtualPet {
 
 	public void play() {
 		boredom = 0;
-	}
-
-	public void tick() {
-		hunger += 2;
-		thirst += 1;
-		boredom += 2;
 	}
 
 	public int getWaste() {

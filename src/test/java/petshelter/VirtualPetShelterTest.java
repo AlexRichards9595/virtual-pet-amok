@@ -17,14 +17,14 @@ public class VirtualPetShelterTest {
 
 	@Test
 	public void shouldCreateAPet() {
-		VirtualPet underTest = new OrgDog("name", "description", 0, 0, 0, 0, 0);
+		VirtualPet underTest = new OrgDog("name", "description");
 
 		assertNotNull(underTest);
 	}
 
 	@Test
 	public void assertThatAPetHasBeenAdded() {
-		Organic orgDog = new OrgDog("name", "description", 20, 20, 20, 20, 20);
+		Organic orgDog = new OrgDog("name", "description");
 		underTest.addPet(orgDog);
 		Collection<VirtualPet> check = underTest.getAllPets();
 		assertThat(check, contains(orgDog));
@@ -33,8 +33,8 @@ public class VirtualPetShelterTest {
 
 	@Test
 	public void shouldBeAbleToAddTwoPets() {
-		Organic orgDog = new OrgDog("name", "description", 20, 20, 20, 20, 20);
-		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20, 20);
+		Organic orgDog = new OrgDog("name", "description");
+		OrgCat orgCat = new OrgCat("steve", "description");
 		underTest.addPet(orgDog);
 		underTest.addPet(orgCat);
 		Collection<VirtualPet> check = underTest.getAllPets();
@@ -44,8 +44,8 @@ public class VirtualPetShelterTest {
 
 	@Test
 	public void shouldBeAbleToRemovePet() {
-		Organic orgDog = new OrgDog("name", "description", 20, 20, 20, 20, 20);
-		OrgCat orgCat = new OrgCat("steve", "description", 20, 20, 20, 20, 20);
+		Organic orgDog = new OrgDog("name", "description");
+		OrgCat orgCat = new OrgCat("steve", "description");
 		underTest.addPet(orgDog);
 		underTest.addPet(orgCat);
 		underTest.removePet("steve");
@@ -74,7 +74,7 @@ public class VirtualPetShelterTest {
 		underTest.addPet(new OrgDog("Steve", "Description"));
 		underTest.addPet(new OrgDog("Bob", "Description"));
 		underTest.addPet(new RoboDog("Steve", "Description"));
-		underTest.WaterAllPets();
+		underTest.waterAllPets();
 
 		for (VirtualPet virtualPet : underTest.getAllPets()) {
 			if (virtualPet instanceof Organic) {
@@ -89,7 +89,7 @@ public class VirtualPetShelterTest {
 		underTest.addPet(new OrgDog("Steve", "Description"));
 		underTest.addPet(new OrgDog("Bob", "Description"));
 		underTest.addPet(new RoboDog("Steve", "Description"));
-		underTest.OilAllRobotPets();
+		underTest.oilAllRobotPets();
 
 		for (VirtualPet virtualPet : underTest.getAllPets()) {
 			if (virtualPet instanceof Robotic) {
@@ -104,7 +104,7 @@ public class VirtualPetShelterTest {
 		underTest.addPet(new OrgDog("Steve", "Description"));
 		underTest.addPet(new OrgDog("Bob", "Description"));
 		underTest.addPet(new RoboDog("Steve", "Description"));
-		underTest.TickAllPets();
+		underTest.tickAllPets();
 
 		for (VirtualPet virtualPet : underTest.getAllPets()) {
 			if (virtualPet instanceof Organic) {
@@ -121,7 +121,23 @@ public class VirtualPetShelterTest {
 	@Test(expected = UnsupportedOperationException.class)
 	public void shouldPlayWithOnlyAnOrganicPet() {
 		underTest.addPet(new RoboDog("Steve", "Description"));
-		underTest.PlayWithPet("Steve");
+		underTest.playWithPet("Steve");
+	}
+
+	@Test
+	public void shouldCleanAllCages() {
+		underTest.addPet(new OrgDog("Steve", "Description"));
+		underTest.addPet(new OrgDog("Bob", "Description"));
+		underTest.addPet(new RoboDog("Steve", "Description"));
+		underTest.cleanAllCages();
+
+		for (VirtualPet virtualPet : underTest.getAllPets()) {
+			if (virtualPet instanceof OrgDog) {
+				int check = ((OrgDog) virtualPet).getCageWaste();
+				assertThat(check, is(0));
+			}
+
+		}
 	}
 
 }

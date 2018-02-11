@@ -16,4 +16,22 @@ public class OrgCat extends Organic {
 		this.waste = waste;
 	}
 
+	public void tick() {
+		
+		health = DEFAULT_HEALTH;
+		hunger += 2;
+		thirst += 1;
+		boredom += 2;
+		waste += 2;
+		if (hunger > 100) {
+			health -= hunger-100;
+		}
+		if (thirst > 100) {
+			health -= thirst-100;
+		}
+		if (boredom > 100) {
+			health -= boredom-100;
+		}
+	}
+
 }

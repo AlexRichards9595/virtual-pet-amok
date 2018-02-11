@@ -2,9 +2,10 @@ package petshelter;
 
 public abstract class VirtualPet {
 
+	protected static final int DEFAULT_HEALTH = 100;
 	protected String name;
 	protected String description;
-	protected int health = 20;
+	protected int health = DEFAULT_HEALTH;
 
 	public String getName() {
 		return name;

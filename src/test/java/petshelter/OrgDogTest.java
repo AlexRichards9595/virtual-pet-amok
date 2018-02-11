@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class OrgDogTest {
 
-	Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+	Organic underTest = new OrgDog("Name", "Description");
 
 	@Test
 	public void shouldReturnName() {
@@ -22,9 +22,9 @@ public class OrgDogTest {
 	}
 
 	@Test
-	public void shouldReturnhealth() {
+	public void shouldReturnHealth() {
 		int check = underTest.getHealth();
-		assertThat(check, is(20));
+		assertThat(check, is(100));
 	}
 
 	@Test
@@ -46,24 +46,28 @@ public class OrgDogTest {
 	}
 
 	@Test
-	public void shouldGetWaster() {
-		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+	public void shouldGetWaste() {
 		int check = underTest.getWaste();
 		assertThat(check, is(20));
+	}
+	@Test
+	public void shouldGetCageWaste () {
+		OrgDog underTest = new OrgDog("name","description");
+		int check = underTest.getCageWaste();
+		assertThat(check, is(0));
 	}
 
 	@Test
 	public void walkShouldReducePoop() {
-		OrgDog underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+		OrgDog underTest = new OrgDog("Name", "Description");
 		int checkBefore = underTest.getWaste();
 		underTest.walk();
 		int checkAfter = underTest.getWaste();
-		assertThat(checkAfter, is(checkBefore - 2));
+		assertThat(checkAfter, is(checkBefore - 10));
 	}
 
 	@Test
 	public void shouldFeedPet() {
-		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
 		underTest.feed();
 		int check = underTest.getHunger();
 		assertThat(check, is(0));
@@ -71,7 +75,6 @@ public class OrgDogTest {
 
 	@Test
 	public void shouldWaterPet() {
-		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
 		underTest.water();
 		int check = underTest.getThirst();
 		assertThat(check, is(0));
@@ -79,19 +82,35 @@ public class OrgDogTest {
 
 	@Test
 	public void shouldPlayWithPet() {
-		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
 		underTest.play();
 		int check = underTest.getBoredom();
+		assertThat(check, is(0));
+	}
+	@Test
+	public void shouldCleanCage() {
+		OrgDog underTest = new OrgDog ("name","description");
+		underTest.cleanCage();
+		int check = underTest.getCageWaste();
 		assertThat(check, is(0));
 	}
 
 	@Test
 	public void shouldTickPet() {
-		Organic underTest = new OrgDog("Name", "Description", 20, 20, 20, 20, 20);
+		OrgDog underTest = new OrgDog("Name","Description");
 		int beforeCheck = underTest.getHunger();
 		underTest.tick();
 		int check = underTest.getHunger();
 		assertThat(check, is(beforeCheck + 2));
 	}
+	@Test
+	public void shouldReduceHealthBecauseHungerIsTooHigh () {
+		OrgDog underTest = new OrgDog("Name", "Description", 100, 110, 20, 20, 20,0);
+		int beforeCheck = underTest.getHealth();
+		underTest.tick();
+		int afterCheck = underTest.getHealth();
+		assertThat(afterCheck, is(beforeCheck-12));
+	}
+	
+	
 
 }

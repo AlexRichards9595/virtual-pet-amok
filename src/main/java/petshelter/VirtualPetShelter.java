@@ -32,7 +32,7 @@ public class VirtualPetShelter {
 		});
 	}
 
-	public void WaterAllPets() {
+	public void waterAllPets() {
 		pets.forEach((String name, VirtualPet virtualPet) -> {
 			if (virtualPet instanceof Organic) {
 				((Organic) virtualPet).water();
@@ -40,10 +40,13 @@ public class VirtualPetShelter {
 		});
 	}
 
-	public void TickAllPets() {
+	public void tickAllPets() {
 		pets.forEach((String name, VirtualPet virtualPet) -> {
-			if (virtualPet instanceof Organic) {
-				((Organic) virtualPet).tick();
+			if (virtualPet instanceof OrgDog) {
+				((OrgDog) virtualPet).tick();
+			}
+			if (virtualPet instanceof OrgCat) {
+				((OrgCat) virtualPet).tick();
 			}
 			if (virtualPet instanceof Robotic) {
 				((Robotic) virtualPet).tick();
@@ -51,7 +54,7 @@ public class VirtualPetShelter {
 		});
 	}
 
-	public void OilAllRobotPets() {
+	public void oilAllRobotPets() {
 		pets.forEach((String name, VirtualPet virtualPet) -> {
 			if (virtualPet instanceof Robotic) {
 				((Robotic) virtualPet).oilPet();
@@ -59,13 +62,21 @@ public class VirtualPetShelter {
 		});
 	}
 
-	public void PlayWithPet(String name) {
+	public void playWithPet(String name) {
 		VirtualPet virtualPet = pets.get(name);
 		if (virtualPet instanceof Organic) {
 			((Organic) virtualPet).play();
 		} else {
 			throw new UnsupportedOperationException();
 		}
+	}
+
+	public void cleanAllCages() {
+		pets.forEach((String name, VirtualPet virtualPet) -> {
+			if (virtualPet instanceof OrgDog) {
+				((OrgDog) virtualPet).cleanCage();
+			}
+		});
 	}
 
 }
