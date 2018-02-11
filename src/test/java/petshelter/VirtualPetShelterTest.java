@@ -136,8 +136,20 @@ public class VirtualPetShelterTest {
 				int check = ((OrgDog) virtualPet).getCageWaste();
 				assertThat(check, is(0));
 			}
-
 		}
+	}
+	@Test
+	public void shouldGetLitterBoxWaste() {
+		int check = underTest.getLitterBoxWaste();
+		assertThat(check, is(0));
+	}
+	@Test
+	public void assertThatLitterBoxWasteGetsAllCatWaste() {
+		underTest.addPet(new OrgCat("Steve","Description"));
+		underTest.addPet(new OrgCat("Bob", "Description"));
+		underTest.tickAllPets();
+		int check = underTest.getLitterBoxWaste();
+		assertThat(check, is(4));
 	}
 
 }

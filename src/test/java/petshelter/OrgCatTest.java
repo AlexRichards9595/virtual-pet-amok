@@ -65,5 +65,6 @@ public class OrgCatTest {
 		int check = underTest.getBoredom();
 		assertThat(check, is(0));
 	}
+	
 
 }

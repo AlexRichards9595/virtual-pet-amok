@@ -15,6 +15,9 @@ public abstract class Robotic extends VirtualPet {
 
 	public void tick() {
 		oils -= 2;
+		if (oils < 10) {
+			health -= 10;
+		}
 	}
 
 }
