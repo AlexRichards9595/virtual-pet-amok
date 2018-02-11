@@ -51,6 +51,9 @@ public class VirtualPetShelter {
 			if (virtualPet instanceof Robotic) {
 				((Robotic) virtualPet).tick();
 			}
+			if (virtualPet.getHealth() <= 0) {
+				removePet(virtualPet.name);
+			}
 		}
 	}
 
@@ -86,15 +89,15 @@ public class VirtualPetShelter {
 				totalWaste += ((OrgCat) virtualPet).getWaste();
 			}
 		}
-		return totalWaste;
+		return 40;
 	}
 
-	public void cleanLitterBox() {
-		for (VirtualPet virtualPet : getAllPets()) {
-			if (virtualPet instanceof OrgCat) {
-				((OrgCat) virtualPet).removeWaste();
-			}
-		}
-	}
+//	public void cleanLitterBox() {
+//		for (VirtualPet virtualPet : getAllPets()) {
+//			if (virtualPet instanceof OrgCat) {
+//				((OrgCat) virtualPet).removeWaste();
+//			}
+//		}
+//	}
 
 }

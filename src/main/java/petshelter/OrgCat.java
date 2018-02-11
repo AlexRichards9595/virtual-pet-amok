@@ -42,8 +42,8 @@ public class OrgCat extends Organic {
 		return virtualPetShelter.getLitterBoxWaste();
 	}
 
-	public void removeWaste() {
-		waste = 0;
-	}
+//	public void removeWaste() {
+//		waste = 0;
+//	}
 
 }

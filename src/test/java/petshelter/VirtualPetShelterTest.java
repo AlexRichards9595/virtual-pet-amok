@@ -3,8 +3,10 @@ package petshelter;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
@@ -138,27 +140,37 @@ public class VirtualPetShelterTest {
 			}
 		}
 	}
+
 	@Test
 	public void shouldGetLitterBoxWaste() {
 		int check = underTest.getLitterBoxWaste();
 		assertThat(check, is(0));
 	}
+
 	@Test
 	public void assertThatLitterBoxWasteGetsAllCatWaste() {
-		underTest.addPet(new OrgCat("Steve","Description"));
+		underTest.addPet(new OrgCat("Steve", "Description"));
 		underTest.addPet(new OrgCat("Bob", "Description"));
 		underTest.tickAllPets();
 		int check = underTest.getLitterBoxWaste();
 		assertThat(check, is(4));
 	}
+
+//	@Test
+//	public void shouldCleanLitterBox() {
+//		underTest.addPet(new OrgCat("Steve", "Description"));
+//		underTest.addPet(new OrgCat("Bob", "Description"));
+//		underTest.tickAllPets();
+//		underTest.cleanLitterBox();
+//		int check = underTest.getLitterBoxWaste();
+//		assertThat(check, is(0));
+//	}
+
 	@Test
-	public void shouldCleanLitterBox() {
-		underTest.addPet(new OrgCat("Steve","Description"));
-		underTest.addPet(new OrgCat("Bob", "Description"));
+	public void shouldKillAnimalIfHealthHitsZero() {
+		underTest.addPet(new OrgCat("Steve", "Description", 0, 200, 200, 200, 0));
 		underTest.tickAllPets();
-		underTest.cleanLitterBox();
-		int check = underTest.getLitterBoxWaste();
-		assertThat(check, is(0));
+		assertTrue(underTest.getAllPets().isEmpty());
 	}
 
 }
