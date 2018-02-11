@@ -151,5 +151,14 @@ public class VirtualPetShelterTest {
 		int check = underTest.getLitterBoxWaste();
 		assertThat(check, is(4));
 	}
+	@Test
+	public void shouldCleanLitterBox() {
+		underTest.addPet(new OrgCat("Steve","Description"));
+		underTest.addPet(new OrgCat("Bob", "Description"));
+		underTest.tickAllPets();
+		underTest.cleanLitterBox();
+		int check = underTest.getLitterBoxWaste();
+		assertThat(check, is(0));
+	}
 
 }
