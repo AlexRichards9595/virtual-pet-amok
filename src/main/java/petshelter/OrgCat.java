@@ -1,6 +1,7 @@
 package petshelter;
 
 public class OrgCat extends Organic {
+	
 
 	public OrgCat(String name, String description) {
 		this(name, description, DEFAULT_HEALTH, 20, 20, 20, 0);
@@ -32,14 +33,6 @@ public class OrgCat extends Organic {
 		if (boredom > 100) {
 			health -= boredom - 100;
 		}
-		if (getTotalWaste() > 50) {
-			health -= getTotalWaste() - 50;
-		}
-	}
-
-	public int getTotalWaste() {
-		VirtualPetShelter virtualPetShelter = new VirtualPetShelter();
-		return virtualPetShelter.getLitterBoxWaste();
 	}
 
 	public void removeWaste() {
@@ -47,7 +40,7 @@ public class OrgCat extends Organic {
 	}
 	@Override
 	public String toString() {
-		return ("Name: " + name + "\t|Health: "+ health + "\t|Hunger: " + hunger + "\t|Thirst: " + thirst + "\t|Boredome: " + boredom + "\t|Waste: " + waste + "\t|");
+		return ("Name: " + name + "\t|Health: "+ health + "\t|Hunger: " + hunger + "\t|Thirst: " + thirst + "\t|Boredome: " + boredom + "\t|Waste: " + waste);
 	}
 
 }

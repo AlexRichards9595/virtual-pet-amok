@@ -15,7 +15,6 @@ public class RoboDog extends Robotic implements Walkable {
 
 	@Override
 	public void walk() {
-		health += 3;
 		oils -= 1;
 
 	}

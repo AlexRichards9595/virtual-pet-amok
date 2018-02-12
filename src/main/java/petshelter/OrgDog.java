@@ -55,6 +55,7 @@ public class OrgDog extends Organic implements Walkable {
 
 	public void cleanCage() {
 		cageWaste = 0;
+		waste = 0;
 	}
 	@Override
 	public String toString() {

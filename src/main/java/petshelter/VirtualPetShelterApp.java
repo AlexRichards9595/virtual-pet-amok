@@ -11,6 +11,8 @@ public class VirtualPetShelterApp {
 
 		System.out.println("Welcome to Big Decimal's Pet Shelter!");
 		String userChoice = "";
+		
+		//Still need to add a walk method!!!
 
 		while (!userChoice.equals("9") || !userChoice.equalsIgnoreCase("quit")) {
 			myPet.tickAllPets();

@@ -173,4 +173,34 @@ public class VirtualPetShelterTest {
 		assertTrue(underTest.getAllPets().isEmpty());
 	}
 
+	@Test
+	public void shouldAffectHealthIfLitterBoxIsTooHigh() {
+		underTest.addPet(new OrgCat("Steve","Description", 100,60,60,60,60));
+		underTest.tickAllPets();
+		int check = underTest.getPet("Steve").getHealth();
+		assertThat(check, is(88));
+	}
+	@Test
+	public void shouldWalkAllWalkables() {
+		OrgDog orgDog = new OrgDog("name", "Description");
+		RoboDog roboDog = new RoboDog("Steve", "description");
+		underTest.addPet(orgDog);
+		underTest.addPet(new OrgDog("Bob", "Description"));
+		underTest.addPet(roboDog);
+		int orgBeforeCheck = orgDog.waste;
+		int roboBeforeCheck = roboDog.oils;
+		underTest.walkAllWalkables();
+		for (VirtualPet virtualPet : underTest.getAllPets()) {
+			int check;
+				if (virtualPet instanceof OrgDog) {
+					check = orgDog.getWaste();
+					assertThat(check, is(orgBeforeCheck-10));
+				}
+				if (virtualPet instanceof RoboDog) {
+					check = roboDog.getOil();
+					assertThat(check, is(roboBeforeCheck-1));
+				}
+			}
+		}
+
 }
