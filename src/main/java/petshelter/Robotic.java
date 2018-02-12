@@ -2,7 +2,7 @@ package petshelter;
 
 public abstract class Robotic extends VirtualPet {
 
-	protected int oils;
+	protected int oils = 20;
 
 	public int getOil() {
 		return oils;

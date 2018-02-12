@@ -11,10 +11,8 @@ public class VirtualPetShelterApp {
 
 		System.out.println("Welcome to Big Decimal's Pet Shelter!");
 		String userChoice = "";
-		
-		//Still need to add a walk method!!!
 
-		while (!userChoice.equals("9") || !userChoice.equalsIgnoreCase("quit")) {
+		while (!userChoice.equals("10") || !userChoice.equalsIgnoreCase("quit")) {
 			myPet.tickAllPets();
 			System.out.println("This is the status of your pets.");
 			myPet.printShelterStats();
@@ -25,11 +23,12 @@ public class VirtualPetShelterApp {
 			System.out.println("2. Water the pets.");
 			System.out.println("3. Play with a pet.");
 			System.out.println("4. Oil robitic pets");
-			System.out.println("5. Clean litterbox");
-			System.out.println("6. Clean the dog cages");
-			System.out.println("7. Admit a new pet.");
-			System.out.println("8. Adopt a pet.");
-			System.out.println("9. Quit.");
+			System.out.println("5. Walk the dogs");
+			System.out.println("6. Clean litterbox");
+			System.out.println("7. Clean the dog cages");
+			System.out.println("8. Admit a new pet.");
+			System.out.println("9. Adopt a pet.");
+			System.out.println("10. Quit.");
 			userChoice = input.nextLine();
 			if (userChoice.equals("1")) {
 				myPet.feedAllPets();
@@ -58,14 +57,18 @@ public class VirtualPetShelterApp {
 				System.out.println("You just oiled your robotic pets!");
 			}
 			if (userChoice.equals("5")) {
+				myPet.walkAllWalkables();
+				System.out.println("You just walked all the dogs!");
+			}
+			if (userChoice.equals("6")) {
 				myPet.cleanLitterBox();
 				System.out.println("You just cleaned the litterbox!");
 			}
-			if (userChoice.equals("6")) {
+			if (userChoice.equals("7")) {
 				myPet.cleanAllCages();
 				System.out.println("You just cleaned all the cages!");
 			}
-			if (userChoice.equals("7")) {
+			if (userChoice.equals("8")) {
 				System.out.println("Alright, what is the new pet's name?");
 				String newName = input.nextLine();
 				System.out.println("What is he/she like?");
@@ -87,7 +90,7 @@ public class VirtualPetShelterApp {
 					continue;
 				}
 			}
-			if (userChoice.equals("8")) {
+			if (userChoice.equals("9")) {
 				System.out.println("Which pet is getting adopted?");
 				String nameToRemove = input.nextLine();
 				if (myPet.checkForPet(nameToRemove)) {
@@ -98,7 +101,7 @@ public class VirtualPetShelterApp {
 					System.out.println();
 				}
 			}
-			if (userChoice.equals("9")) {
+			if (userChoice.equals("10")) {
 				System.out.println("Bye!");
 				System.exit(0);
 			}

@@ -18,9 +18,10 @@ public class RoboDog extends Robotic implements Walkable {
 		oils -= 1;
 
 	}
+
 	@Override
 	public String toString() {
-		return ("Name: " + name + "\t|Health: "+ health + "\t|Oils: " + oils);
+		return ("Name: " + name + "\t|Health: " + health + "\t|Oils: " + oils);
 	}
 
 }

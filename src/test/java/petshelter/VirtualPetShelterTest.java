@@ -3,14 +3,12 @@ package petshelter;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
-import org.hamcrest.Matchers;
 import org.junit.Test;
 
 public class VirtualPetShelterTest {
@@ -175,11 +173,12 @@ public class VirtualPetShelterTest {
 
 	@Test
 	public void shouldAffectHealthIfLitterBoxIsTooHigh() {
-		underTest.addPet(new OrgCat("Steve","Description", 100,60,60,60,60));
+		underTest.addPet(new OrgCat("Steve", "Description", 100, 60, 60, 60, 60));
 		underTest.tickAllPets();
 		int check = underTest.getPet("Steve").getHealth();
 		assertThat(check, is(88));
 	}
+
 	@Test
 	public void shouldWalkAllWalkables() {
 		OrgDog orgDog = new OrgDog("name", "Description");
@@ -192,15 +191,15 @@ public class VirtualPetShelterTest {
 		underTest.walkAllWalkables();
 		for (VirtualPet virtualPet : underTest.getAllPets()) {
 			int check;
-				if (virtualPet instanceof OrgDog) {
-					check = orgDog.getWaste();
-					assertThat(check, is(orgBeforeCheck-10));
-				}
-				if (virtualPet instanceof RoboDog) {
-					check = roboDog.getOil();
-					assertThat(check, is(roboBeforeCheck-1));
-				}
+			if (virtualPet instanceof OrgDog) {
+				check = orgDog.getWaste();
+				assertThat(check, is(orgBeforeCheck - 10));
+			}
+			if (virtualPet instanceof RoboDog) {
+				check = roboDog.getOil();
+				assertThat(check, is(roboBeforeCheck - 1));
 			}
 		}
+	}
 
 }

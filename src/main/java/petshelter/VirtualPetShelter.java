@@ -48,7 +48,7 @@ public class VirtualPetShelter {
 			if (virtualPet instanceof OrgCat) {
 				((OrgCat) virtualPet).tick();
 				if (getLitterBoxWaste() > 50) {
-					virtualPet.health -= getLitterBoxWaste()-50;
+					virtualPet.health -= getLitterBoxWaste() - 50;
 				}
 			}
 			if (virtualPet instanceof Robotic) {
@@ -109,6 +109,7 @@ public class VirtualPetShelter {
 		}
 		System.out.println("Litterbox waste: " + getLitterBoxWaste());
 	}
+
 	public void printAnimalNameAndDescription() {
 		for (VirtualPet virtualPet : getAllPets()) {
 			System.out.println("[" + virtualPet.getName() + "]\t" + virtualPet.getDescription());

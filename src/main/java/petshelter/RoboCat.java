@@ -12,8 +12,9 @@ public class RoboCat extends Robotic {
 		this.health = health;
 		this.oils = oils;
 	}
+
 	@Override
 	public String toString() {
-		return ("Name: " + name + "\t|Health: "+ health +  "\t|Oils: " + oils);
+		return ("Name: " + name + "\t|Health: " + health + "\t|Oils: " + oils);
 	}
 }
